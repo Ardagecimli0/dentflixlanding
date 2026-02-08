@@ -19,7 +19,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          
+
           {/* Language-prefixed routes with localized slugs */}
           {languages.map((lang) => (
             <Route
