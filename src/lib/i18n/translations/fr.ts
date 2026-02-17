@@ -63,11 +63,13 @@ export const fr = {
     },
     hollywoodSmile: {
       title: 'Sourire Hollywood',
-      description: 'Vivez une transformation de sourire avec nos techniques avancées et notre expertise. Profitez d\'un processus de récupération fluide et confortable.',
+      subtitle: 'Nos Forfaits Sourire Hollywood :',
+      items: ['Facettes Porcelaine', 'Facettes Laminées', 'Blanchiment Dentaire', 'Remodelage Gingival'],
     },
     restorativeDentistry: {
       title: 'Dentisterie Restauratrice',
-      description: 'Que vous ayez besoin d\'implants dentaires, de couronnes, de bridges ou d\'autres procédures restauratrices, nous offrons des solutions complètes avec des résultats naturels.',
+      subtitle: 'Nos Solutions Restauratrices :',
+      items: ['Bridges Dentaires', 'Obturations Porcelaine', 'Obturations Composites', 'Attachements de Précision'],
     },
     getMoreInfo: 'Plus d\'Informations',
   },

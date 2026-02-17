@@ -18,8 +18,8 @@ const Services = () => {
   ];
 
   const bottomServices = [
-    { key: 'hollywoodSmile', image: patient4, hasPackages: false },
-    { key: 'restorativeDentistry', image: patient5, hasPackages: false },
+    { key: 'hollywoodSmile', image: patient4, hasPackages: true },
+    { key: 'restorativeDentistry', image: patient5, hasPackages: true },
   ];
 
   const ServiceCard = ({ service, index }: { service: typeof topServices[0]; index: number }) => (
@@ -59,8 +59,7 @@ const Services = () => {
                   <li key={i} className="flex items-start gap-2 text-left justify-center">
                     <ChevronRight className="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
                     <a
-                      href="https://wa.me/905496807372?text=Can%20i%20have%20more%20information%20about%20dental%20treatments%20and%20prices%3F"
-                      target="_blank"
+                      href="https://api.whatsapp.com/send?phone=905304172338&text=Can%20i%20have%20more%20information%20about%20dental%20treatments%20and%20prices%3F"
                       rel="noopener noreferrer"
                       className="text-sm text-dental-navy hover:text-primary underline"
                     >
@@ -82,8 +81,7 @@ const Services = () => {
           className="bg-[#1e1e3f] hover:bg-[#1e1e3f]/90 text-white"
         >
           <a
-            href="https://wa.me/905496807372?text=Can%20i%20have%20more%20information%20about%20dental%20treatments%20and%20prices%3F"
-            target="_blank"
+            href="https://api.whatsapp.com/send?phone=905304172338&text=Can%20i%20have%20more%20information%20about%20dental%20treatments%20and%20prices%3F"
             rel="noopener noreferrer"
           >
             {t('services.getMoreInfo')}

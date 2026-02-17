@@ -63,11 +63,13 @@ export const de = {
     },
     hollywoodSmile: {
       title: 'Hollywood Smile',
-      description: 'Erleben Sie eine transformative Lächeln-Verjüngung mit unseren fortschrittlichen Techniken und Expertise.',
+      subtitle: 'Unsere Hollywood Smile Pakete:',
+      items: ['Porzellan Veneers', 'Laminat Veneers', 'Zahnaufhellung', 'Zahnfleischkorrektur'],
     },
     restorativeDentistry: {
       title: 'Restaurative Zahnmedizin',
-      description: 'Ob Zahnimplantate, Kronen, Brücken oder andere restaurative Verfahren - wir bieten komplette Lösungen mit natürlichen Ergebnissen.',
+      subtitle: 'Unsere Restaurativen Lösungen:',
+      items: ['Zahnbrücken', 'Porzellanfüllungen', 'Kompositfüllungen', 'Präzisionsgeschiebe'],
     },
     getMoreInfo: 'Mehr Informationen',
   },

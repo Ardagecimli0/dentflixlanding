@@ -63,11 +63,13 @@ export const it = {
     },
     hollywoodSmile: {
       title: 'Hollywood Smile',
-      description: 'Vivi un rifacimento del sorriso trasformativo con le nostre tecniche avanzate e la nostra esperienza.',
+      subtitle: 'I Nostri Pacchetti Hollywood Smile:',
+      items: ['Faccette in Porcellana', 'Faccette Laminate', 'Sbiancamento Dentale', 'Rimodellamento Gengivale'],
     },
     restorativeDentistry: {
       title: 'Odontoiatria Restaurativa',
-      description: 'Che tu abbia bisogno di impianti, corone, ponti o altre procedure restaurative, offriamo soluzioni complete con risultati naturali.',
+      subtitle: 'Le Nostre Soluzioni Restaurative:',
+      items: ['Ponti Dentali', 'Otturazioni in Porcellana', 'Otturazioni in Composito', 'Attacchi di Precisione'],
     },
     getMoreInfo: 'Maggiori Informazioni',
   },

@@ -19,7 +19,7 @@ const Hero = () => {
   const bgImages = [ba1, ba2, ba3, ba4, ba5, ba6, ba7, ba8];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 max-w-[100vw]">
       {/* Background Grid of Before/After Images */}
       <div className="absolute inset-0 grid grid-cols-3 md:grid-cols-5 gap-1 opacity-30">
         {Array.from({ length: 15 }).map((_, i) => (
@@ -55,8 +55,7 @@ const Hero = () => {
           </p>
 
           <motion.a
-            href="https://wa.me/905496807372?text=Can%20i%20have%20more%20information%20about%20dental%20treatments%20and%20prices%3F"
-            target="_blank"
+            href="https://api.whatsapp.com/send?phone=905304172338&text=Can%20i%20have%20more%20information%20about%20dental%20treatments%20and%20prices%3F"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

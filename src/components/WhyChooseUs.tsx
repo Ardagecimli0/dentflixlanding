@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import CountrySelect from './CountrySelect';
+import CountrySelect, { countries } from './CountrySelect';
 
 const WhyChooseUs = () => {
   const { t, i18n } = useTranslation();
@@ -17,10 +17,10 @@ const WhyChooseUs = () => {
 
   const [loading, setLoading] = useState(false);
 
-  // Map language to country code for default selection
+  // Fallback: Map language to country code
   const getInitialPhoneCode = (lang: string) => {
     const map: Record<string, string> = {
-      en: '+44', // Defaulting EN to UK
+      en: '+44',
       tr: '+90',
       de: '+49',
       fr: '+33',
@@ -33,9 +33,26 @@ const WhyChooseUs = () => {
 
   const [formCountry, setFormCountry] = useState(getInitialPhoneCode(i18n.language));
 
+  // Detect country from IP on mount
   useEffect(() => {
-    setFormCountry(getInitialPhoneCode(i18n.language));
-  }, [i18n.language]);
+    const detectCountryByIP = async () => {
+      try {
+        const res = await fetch('https://ip-api.com/json/?fields=countryCode');
+        const data = await res.json();
+        if (data.countryCode) {
+          const match = countries.find(c => c.code === data.countryCode);
+          if (match) {
+            setFormCountry(match.dialCode);
+            return;
+          }
+        }
+      } catch {
+        // Fallback to language-based
+      }
+      setFormCountry(getInitialPhoneCode(i18n.language));
+    };
+    detectCountryByIP();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,7 +108,7 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <section id="why" className="section-padding bg-dental-navy">
+    <section id="why" className="section-padding bg-dental-navy overflow-hidden">
       <div className="container-dental">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left: Why Choose Us */}
