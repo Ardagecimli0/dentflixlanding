@@ -17,39 +17,23 @@ const WhyChooseUs = () => {
 
   const [loading, setLoading] = useState(false);
 
-  // Fallback: Map language to country code
-  const getInitialPhoneCode = (lang: string) => {
-    const map: Record<string, string> = {
-      en: '+44',
-      tr: '+90',
-      de: '+49',
-      fr: '+33',
-      es: '+34',
-      it: '+39',
-      ru: '+7',
-    };
-    return map[lang] || '+44';
-  };
-
-  const [formCountry, setFormCountry] = useState(getInitialPhoneCode(i18n.language));
+  const [formCountry, setFormCountry] = useState('');
 
   // Detect country from IP on mount
   useEffect(() => {
     const detectCountryByIP = async () => {
       try {
-        const res = await fetch('https://ip-api.com/json/?fields=countryCode');
+        const res = await fetch('https://ipapi.co/json/');
         const data = await res.json();
-        if (data.countryCode) {
-          const match = countries.find(c => c.code === data.countryCode);
+        if (data.country_code) {
+          const match = countries.find(c => c.code === data.country_code);
           if (match) {
             setFormCountry(match.dialCode);
-            return;
           }
         }
       } catch {
-        // Fallback to language-based
+        // IP detection failed, user selects manually
       }
-      setFormCountry(getInitialPhoneCode(i18n.language));
     };
     detectCountryByIP();
   }, []);
