@@ -8,6 +8,7 @@ import { es } from './translations/es';
 import { tr } from './translations/tr';
 import { ru } from './translations/ru';
 import { it } from './translations/it';
+import { pl } from './translations/pl';
 import { defaultLanguage, languages } from './config';
 
 const resources = {
@@ -18,6 +19,7 @@ const resources = {
   tr: { translation: tr },
   ru: { translation: ru },
   it: { translation: it },
+  pl: { translation: pl },
 };
 
 i18n

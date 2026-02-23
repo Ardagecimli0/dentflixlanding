@@ -1,4 +1,4 @@
-export const languages = ['en', 'fr', 'de', 'es', 'tr', 'ru', 'it'] as const;
+export const languages = ['en', 'fr', 'de', 'es', 'tr', 'ru', 'it', 'pl'] as const;
 export type Language = typeof languages[number];
 
 export const defaultLanguage: Language = 'en';
@@ -11,6 +11,7 @@ export const languageNames: Record<Language, string> = {
   tr: 'Türkçe',
   ru: 'Русский',
   it: 'Italiano',
+  pl: 'Polski',
 };
 
 export const languageFlags: Record<Language, string> = {
@@ -21,6 +22,7 @@ export const languageFlags: Record<Language, string> = {
   tr: '🇹🇷',
   ru: '🇷🇺',
   it: '🇮🇹',
+  pl: '🇵🇱',
 };
 
 // Localized slugs for "dental-implant-turkey"
@@ -32,6 +34,7 @@ export const localizedSlugs: Record<Language, string> = {
   tr: 'dis-implanti-turkiye',
   ru: 'zubnoy-implant-turtsiya',
   it: 'impianto-dentale-in-turchia',
+  pl: 'implant-dentystyczny-turcjia',
 };
 
 export const getSlugForLanguage = (lang: Language): string => {
