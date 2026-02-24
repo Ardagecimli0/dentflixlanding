@@ -2,7 +2,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import '@/lib/i18n';
 import Index from "./pages/Index";
 import LocalizedDentalPage from "./pages/LocalizedDentalPage";
@@ -11,12 +12,30 @@ import { localizedSlugs, languages, defaultLanguage } from "./lib/i18n/config";
 
 const queryClient = new QueryClient();
 
+// GTM Tracking component to handle route changes in SPA
+const GTMTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Check if dataLayer exists and push a pageview event
+    if (typeof window !== 'undefined' && (window as any).dataLayer) {
+      (window as any).dataLayer.push({
+        event: 'pageview',
+        page: location.pathname + location.search
+      });
+    }
+  }, [location]);
+
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <GTMTracker />
         <Routes>
           <Route path="/" element={<Index />} />
 
